@@ -1,7 +1,7 @@
 import { PageFlip } from "page-flip";
 import React, { useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import pdfFile from "./asdasd.pdf";
+import pdfFile from "./10-page-sample.pdf";
 
 import HTMLFlipOptional from "./HTMLFlipOptional";
 import ThumbnailWrapper from "./ThumbnailWrapper";
