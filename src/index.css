@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+.react-pdf__Thumbnail__page__canvas,
+.react-pdf__Page__canvas {
+  margin: 0;
+  width: 100% !important;
+  height: 100% !important;
+  /* min-height: 200px; */
+}
+
+.react-pdf__Thumbnail__page {
+  scroll-margin-top: 50px;
+}
+
+/* .demoPage {
+  height: 100% !important;
+} */
+
+/* .demoPage div {
+  height: 100%;
+} */
+
+.react-pdf__Page {
+  height: 100%;
+}
+
+/* .stf__item.--left {
+  left: 0 !important;
+} */
+
+/* .stf__wrapper {
+  position: relative;
+  height: 100% !important;
+  box-shadow: none !important;
+  padding-bottom: 0 !important;
+} */
+
+.page {
+  border: 1px solid #c0c0c0;
+}
+
+.page-cover {
+  border: 1px solid #1970a9;
+}
+
+.page-cover-landscape {
+  /* transition: transform 0.5s 0.5s ease-in-out; */
+  transform: translateX(-50%);
+}
+
+.btn {
+  @apply rounded bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600;
+}
+
+.btn:focus {
+  @apply outline-none ring-2 ring-blue-300;
+}
+
+.thumbnail::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+.thumbnail::-webkit-scrollbar-thumb {
+  background-color: rgb(109, 109, 229);
+  border-radius: 7px;
+  border: 1px solid rgb(229 231 235);
+}
