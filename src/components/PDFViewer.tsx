@@ -46,8 +46,8 @@ const PDFViewer: React.FC = () => {
   };
 
   return (
-    <div className="pdf-viewer flex h-full min-h-screen flex-col items-center justify-center overflow-hidden bg-gray-100 p-4">
-      <div className="relative h-[400px] w-full max-[400px]:h-[300px]">
+    <div className="pdf-viewer flex h-full min-h-screen flex-col items-center justify-center overflow-hidden overflow-y-auto bg-gray-100 p-4 pb-16">
+      <div className="relative h-[400px] w-full max-[380px]:h-[360px]">
         <Document
           file={pdfFile}
           onLoadSuccess={onDocumentLoadSuccess}
@@ -63,7 +63,7 @@ const PDFViewer: React.FC = () => {
         >
           <HTMLFlipOptional
             ref={bookRef}
-            className="flip-book max-[400px]:!scale-75"
+            className="flip-book max-[380px]:!scale-90"
             width={300}
             height={400}
             size="fixed"
@@ -98,25 +98,9 @@ const PDFViewer: React.FC = () => {
             pagesNumber={numPages || 0}
             pageIndex={pageIndex}
             showThumbnail={showThumbnail}
+            setShowThumbnail={setShowThumbnail}
           />
         </Document>
-
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-4">
-          <button
-            onClick={handlePrevPage}
-            className="btn"
-            disabled={pageIndex <= 0}
-          >
-            Previous
-          </button>
-          <button
-            onClick={handleNextPage}
-            className="btn"
-            disabled={pageIndex + 1 >= (numPages || 0)}
-          >
-            Next
-          </button>
-        </div>
       </div>
 
       {numPages && (
@@ -125,8 +109,26 @@ const PDFViewer: React.FC = () => {
         </p>
       )}
 
-      <div className="fixed bottom-3 left-1/2 z-10 flex -translate-x-1/2 bg-gray-300 p-2">
-        <button onClick={() => setShowThumbnail((p) => !p)}>Thumbnail</button>
+      <div className="fixed bottom-0 z-10 flex min-w-[100vw] justify-center gap-2 bg-gray-700 p-2 text-sm">
+        <button className="btn" onClick={() => setShowThumbnail((p) => !p)}>
+          Thumbnail
+        </button>
+
+        <button
+          onClick={handlePrevPage}
+          className="btn"
+          disabled={pageIndex <= 0}
+        >
+          Previous
+        </button>
+
+        <button
+          onClick={handleNextPage}
+          className="btn"
+          disabled={pageIndex + 1 >= (numPages || 0)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

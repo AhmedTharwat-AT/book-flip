@@ -11,7 +11,7 @@
   margin: 0;
   width: 100% !important;
   height: 100% !important;
-  /* min-height: 200px; */
+  @apply shadow-lg;
 }
 
 .react-pdf__Thumbnail__page {
@@ -55,11 +55,15 @@
 }
 
 .btn {
-  @apply rounded bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600;
+  @apply rounded bg-blue-500 px-2 py-1 text-white transition-colors hover:bg-blue-600;
 }
 
 .btn:focus {
-  @apply outline-none ring-2 ring-blue-300;
+  @apply outline-none ring-0;
+}
+
+.btn:disabled {
+  @apply bg-gray-400 hover:bg-gray-400;
 }
 
 .thumbnail::-webkit-scrollbar {
